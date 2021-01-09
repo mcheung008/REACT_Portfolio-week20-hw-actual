@@ -1,10 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Footer from './components/Footer';
+
+import PortfolioPage from './pages/PortfolioPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+
 import './App.css';
+
 
 class App extends React.Component {
 
@@ -48,6 +54,12 @@ class App extends React.Component {
             </Navbar.Collapse>
           </Navbar>
 
+
+          <Route path="/" exact render={() => <PortfolioPage title={this.state.portfolio.title} subTitle={this.state.portfolio.subTitle} text={this.state.portfolio.text} />} />
+          <Route path="/about" render={() => <AboutPage title={this.state.about.title} />} />
+          <Route path="/contact" render={() => <ContactPage title={this.state.contact.title} />} />
+
+          
             <Footer />
 
           </Container>
